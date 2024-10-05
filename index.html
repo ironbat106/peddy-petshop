@@ -1,76 +1,105 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peddy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/861b2d4cb6.js" crossorigin="anonymous"></script>
-    <style>
-        .font-poppins
-        {
-            font-family: "Poppins", sans-serif;
-        }
-    </style>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-                'main-btn':'rgb(171, 239, 95)',
-                'sec-btn':'rgba(171, 239, 95, 0.5)',
-                'footer':'rgb(28,28,28)'
-              }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peddy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/861b2d4cb6.js" crossorigin="anonymous"></script>
+  <style>
+    .font-poppins {
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            'main-btn': 'rgb(171, 239, 95)',
+            'sec-btn': 'rgb(14, 122, 129)',
+            'footer': 'rgb(28,28,28)'
           }
         }
-      </script>
-      <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-      
+      }
+    }
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
 </head>
+
 <body>
-    <header class="md:container mx-auto px-10">
-      <!-- Navbar -->
-        <nav>
-            <div class="navbar bg-base-100">
-                <div class="navbar-start w-full flex justify-between items-center lg:w-1/2">
-                    <a class="font-bold text-xl flex flex-row gap-2"><img src="images/logo.webp" alt="">Peddy</a>
-                  <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6h16M4 12h8m-8 6h16" />
-                      </svg>
-                    </div>
-                    <ul
-                      tabindex="0"
-                      class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-2 p-1 shadow">
-                        <li><a>Home</a></li>
-                        <li><a>Shop</a></li>
-                        <li><a>Contact</a></li>
-                    </ul>
-                  </div>
-                  
-                </div>
-                <div class="navbar-center hidden lg:flex">
-                  <ul class="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
-                    <li><a>Shop</a></li>
-                    <li><a>Contact</a></li>
-                    
-                  </ul>
-                </div>
-                <div class="navbar-end hidden lg:flex justify-end gap-x-4">
-                  <i class="fa-regular fa-user"></i>
-                </div>
-              </div>
-        </nav>
+  <header class="md:container mx-auto px-10">
+    <!-- Navbar -->
+    <nav>
+      <div class="navbar bg-base-100">
+        <div class="navbar-start w-full flex justify-between items-center lg:w-1/2">
+          <a class="font-bold text-xl flex flex-row gap-2"><img src="images/logo.webp" alt="">Peddy</a>
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-2 p-1 shadow">
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>Home</a></li>
+            <li><a>Shop</a></li>
+            <li><a>Contact</a></li>
+
+          </ul>
+        </div>
+        <div class="navbar-end hidden lg:flex justify-end gap-x-4">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Bringing Families Together Section -->
+    <section>
+      <div class="hero min-h-screen">
+        <div class=" hero-content flex-col lg:flex-col">
+          <div>
+            <p class="py-4 sm:py-6 text-center text-sm sm:text-base md: text-lg">
+              Bringing Families Together ❤️‍🔥
+            </p>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center sm:w-3/4 mx-auto text-black">
+              Your Path to Adoption <br> Starts Here
+              </h1>
+
+            <p class="py-4 sm:py-6 text-center text-sm sm:text-base md: text-lg">
+              Adopting pets gives animals a loving home, reduces overcrowding in shelters, and offers emotional <br> companionship while saving lives. Adopt today!
+            </p>
+
+            <div class="flex justify-center">
+              <button class=" btn bg-sec-btn text-white font-bold rounded-lg">View More</button>
+            </div>
+            <div class="ml-0 md:ml-52">
+              <img src="images/pet.webp" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    </header>
+  </main>
+  <footer>
+
+  </footer>
+
+</body>
