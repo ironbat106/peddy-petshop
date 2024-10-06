@@ -51,3 +51,5 @@ const loadCategories = () =>
   };
   
   loadCategories();
+
+  
