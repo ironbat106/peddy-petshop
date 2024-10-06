@@ -41,8 +41,8 @@ const loadCategories = () =>
             <p class="text-gray-600 text-sm mb-2">Price: $${pet.price || "N/A"}</p>
             <div class="flex justify-around">
               <button class="bg-gray-200 px-4 py-2 rounded-md"><i class="fa-regular fa-thumbs-up"></i></button>
-              <button class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Adopt</button>
-              <button class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
+              <button class="text-sec-btn bg-gray-200 px-4 py-2 rounded-md">Adopt</button>
+              <button class="text-sec-btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
             </div>
           </div>`;
         petContainer.append(Viewpet);

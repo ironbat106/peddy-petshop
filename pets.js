@@ -17,7 +17,7 @@ const showPetsByCategory =(pets) => {
         petContainer.classList.remove("grid");
         petContainer.innerHTML =  `
         <div class="min-h-[300px] flex flex-col gap-5 justify-center items-center">
-          <img src="images/error.png" /> 
+          <img src="images/error.webp"/> 
           <h2 class="text-center text-xl font-bold">No Content Here in this Category</h2>
         </div>`;
     }
@@ -51,3 +51,4 @@ document.getElementById("dogs-btn").addEventListener("click", () => loadPetsByCa
 document.getElementById("cats-btn").addEventListener("click", () => loadPetsByCategory("cat"));
 document.getElementById("rabbits-btn").addEventListener("click", () => loadPetsByCategory("rabbit"));
 document.getElementById("birds-btn").addEventListener("click", () => loadPetsByCategory("bird"));
+
