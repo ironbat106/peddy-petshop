@@ -37,11 +37,18 @@ const showPetsByCategory = (pets) => {
             <p class="text-gray-600 text-sm mb-2">Gender: ${pet.gender}</p>
             <p class="text-gray-600 text-sm mb-2">Price: $${pet.price || "N/A"}</p>
             <div class="flex justify-around">
-              <button id="Like-btn" class="bg-gray-200 px-4 py-2 rounded-md"><i class="fa-regular fa-thumbs-up"></i></button>
-              <button class="text-sec-btn bg-gray-200 px-4 py-2 rounded-md">Adopt</button>
-              <button class="text-sec-btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
+              <button id="" class="like-btn bg-gray-200 px-4 py-2 rounded-md"><i class="fa-regular fa-thumbs-up"></i></button>
+              <button onclick= "adoptPet('${pet.petId}', this)" class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Adopt</button>
+              <button onclick="loadDetails('${pet.petId}')" class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
+            </div>
             </div>
           </div>`;
+
+          const likeButton = Viewpet.querySelector('.like-btn')
+          likeButton.addEventListener('click', () => {
+              LikedImages.push(pet.image)
+              displayLikedImages();
+          });
 
             petContainer.append(Viewpet);
         });
@@ -54,6 +61,33 @@ const loadLikedPhotos =(image) =>
         .then((data) => displayPets(data.pets))
         .catch((error) => console.log(error));
     }
+
+    const adoptPet = (petId, button) => {
+        // Show the adoption modal and set initial message
+        const adoptContent = document.querySelector(".adopt-content");
+        adoptContent.innerHTML = `<p class="text-4xl font-bold">Congrats!</p>
+        <p class="text-lg">Adoption process has started for your pet!</p>
+        <div id="countdown"></div>`;
+        const adoptModal = document.getElementById("adoptModal");
+        adoptModal.showModal();
+    
+        let countdown = 3; // Countdown from 3
+        const countdownDiv = document.getElementById("countdown");
+    
+        const interval = setInterval(() => {
+            countdownDiv.innerHTML = countdown;
+            countdown--;
+    
+            // After countdown reaches 0
+            if (countdown < 0) {
+                clearInterval(interval);
+                button.textContent = "Adopted";
+                setTimeout(() => {
+                    adoptModal.close();
+                });
+            }
+        }, 1000);
+    };
 
 document.getElementById("dogs-btn").addEventListener("click", () => loadPetsByCategory("dog"));
 document.getElementById("cats-btn").addEventListener("click", () => loadPetsByCategory("cat"));

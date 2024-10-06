@@ -483,28 +483,37 @@
         </div>
 
         <div>
-          <!-- Like photos -->
-          <div id="Liked-Picture" class="bg-white rounded-lg shadow-lg p-6 w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Like Picture -->
+          <div id="Liked-Picture"
+            class="bg-white rounded-lg shadow-lg p-6 w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Modal 1-->
     <button class="btn hidden" onclick="customModal.showModal()">open modal</button>
     <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-            <div id="modal-content">
-    
-            </div>
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn btn-wide">Cancel</button>
-                </form>
-            </div>
+      <div class="modal-box">
+        <div id="modal-content">
+
         </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn btn-wide">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Modal 2 -->
+    <dialog id="adoptModal" class="adptmodal">
+      <div class="modal-box w-full max-w-lg p-6 bg-white rounded-lg shadow-lg">
+        <div class="adopt-content text-center text-lg font-semibold">
+          <!-- This is where the countdown will be displayed -->
+        </div>
+      </div>
     </dialog>
 
   </main>
