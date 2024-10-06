@@ -42,7 +42,7 @@ const loadCategories = () =>
             <div class="flex justify-around">
               <button id="" class=" like-btn bg-gray-200 px-4 py-2 rounded-md"><i class="fa-regular fa-thumbs-up"></i></button>
               <button class="text-sec-btn bg-gray-200 px-4 py-2 rounded-md">Adopt</button>
-              <button class="text-sec-btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
+              <button onclick="loadDetails('${pet.petId}')" class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
             </div>
           </div>`;
 
@@ -73,6 +73,37 @@ const loadCategories = () =>
           likedPicutureContainer.appendChild(imgEle);
       });
   };
+
+const loadDetails = async (petId) => {
+    console.log(petId)
+    const url = `https://openapi.programming-hero.com/api/peddy/pet/${petId}`
+    const res = await fetch(url)
+    const data = await res.json();
+    displayDetails(data.petData)
+}
+const displayDetails = (petData) => {
+    console.log(petData)
+    const detailsContainer = document.getElementById("modal-content")
+    document.getElementById("customModal").showModal();
+
+    detailsContainer.innerHTML = `
+
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300 ease-out w-full">
+            <img src="${petData.image}" alt="${petData.pet_name}" class="rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-2 "> ${petData.pet_name}</h3>
+            <div class="grid grid-cols-2">
+                <p class="text-gray-600 text-sm mb-2">Breed: ${petData.breed || "N/A"}</p>
+                <p class="text-gray-600 text-sm mb-2">Birth: ${petData.date_of_birth || "N/A"}</p>
+                <p class="text-gray-600 text-sm mb-2">Gender: ${petData.gender}</p>
+                <p class="text-gray-600 text-sm mb-2">Price: ${petData.price || "N/A"}</p>
+                <p class="text-gray-600 text-sm mb-2">Vaccinated status: ${petData.vaccinated_status || "N/A"}</p>
+            </div>
+            <p class="text-gray-600 font-bold mb-2">Details Information</p>
+            <p class="text-gray-600 text-sm mb-2">Details Information: ${petData.pet_details || "N/A"}</p>
+
+          </div>
+    `
+}
 
   
   loadCategories();

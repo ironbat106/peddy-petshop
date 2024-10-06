@@ -482,14 +482,30 @@
 
         </div>
 
-        <div class="grid grid-cols-2">
-          <!-- Like photos   -->
-          <div id="Liked-Picture" class="bg-white rounded-lg shadow-lg p-6 lg:col-span-1">
+        <div>
+          <!-- Like photos -->
+          <div id="Liked-Picture" class="bg-white rounded-lg shadow-lg p-6 w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           </div>
         </div>
 
       </div>
     </section>
+
+    <!-- Modal -->
+    <button class="btn hidden" onclick="customModal.showModal()">open modal</button>
+    <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="modal-content">
+    
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-wide">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
   </main>
   <footer class="bg-black text-gray-400 py-16 px-16">
