@@ -117,8 +117,8 @@ const sortByPrice = () => {
     petContainer.innerHTML = '';
 
     sortedPets.forEach(pet => {
-        const showPet = document.createElement("div");
-        showPet.innerHTML = `
+        const Viewpet = document.createElement("div");
+        Viewpet.innerHTML = `
           <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300 ease-out min-w-full">
             <img src="${pet.image}" alt="${pet.pet_name}" class="rounded-lg mb-4">
             <h3 class="text-xl font-semibold mb-2 "> ${pet.pet_name}</h3>
@@ -132,7 +132,14 @@ const sortByPrice = () => {
               <button onclick="loadDetails('${pet.petId}')" class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
             </div>
           </div>`;
-        petContainer.appendChild(showPet);
+          
+          const likeButton = Viewpet.querySelector('.like-btn')
+            likeButton.addEventListener('click', () => {
+                LikedImages.push(pet.image)
+                displayLikedImages();
+            });
+
+        petContainer.appendChild(Viewpet);
     });
 };
 document.getElementById("sort-price-btn").addEventListener("click", sortByPrice);

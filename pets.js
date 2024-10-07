@@ -96,6 +96,7 @@ const loadLikedPhotos =(image) =>
     
             if (countdown < 0) {
                 clearInterval(interval);
+                button.disable = true;
                 button.textContent = "Adopted";
                 setTimeout(() => {
                     adoptModal.close();
