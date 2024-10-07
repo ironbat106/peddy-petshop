@@ -118,22 +118,39 @@ const loadLikedPhotos =(image) =>
             }
         }, 2000);
     };
+
+    const setActiveButton = (activeBtnId) => {
+        const buttons = document.querySelectorAll('.category-btn');
+        buttons.forEach((button) => {
+            if(button.id === activeBtnId)
+            {
+                button.classList.add('bg-amber-500', 'text-white');
+            }
+            else{
+                button.classList.remove('bg-amber-500', 'text-white');
+            }
+        });
+    }
     
 
 document.getElementById("dogs-btn").addEventListener("click", () => {
     document.getElementById("spinner").style.display = "flex";
-    loadPetsByCategory("dog")
+    loadPetsByCategory("dog");
+    setActiveButton("dogs-btn");
 });
 document.getElementById("cats-btn").addEventListener("click", () => {
     document.getElementById("spinner").style.display = "flex";
-    loadPetsByCategory("cat")
+    loadPetsByCategory("cat");
+    setActiveButton("cats-btn");
 });
 document.getElementById("rabbits-btn").addEventListener("click", () => {
     document.getElementById("spinner").style.display = "flex";
-    loadPetsByCategory("rabbit")
+    loadPetsByCategory("rabbit");
+    setActiveButton("rabbits-btn");
 });
 document.getElementById("birds-btn").addEventListener("click", () => {
     document.getElementById("spinner").style.display = "flex";
-    loadPetsByCategory("bird")
+    loadPetsByCategory("bird");
+    setActiveButton("birds-btn");
 });
 document.getElementById("Like-btn").addEventListener("click", () => loadLikedPhotos("Liked-Picture"));
