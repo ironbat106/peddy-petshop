@@ -136,10 +136,10 @@ const loadLikedPhotos =(image) =>
         buttons.forEach((button) => {
             if(button.id === activeBtnId)
             {
-                button.classList.add('bg-amber-500', 'text-white');
+                button.classList.add('bg-teal-300', 'text-black');
             }
             else{
-                button.classList.remove('bg-amber-500', 'text-white');
+                button.classList.remove('bg-teal-300', 'text-black');
             }
         });
     }
