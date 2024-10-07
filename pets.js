@@ -67,27 +67,39 @@ const loadLikedPhotos =(image) =>
     }
 
     const adoptPet = (petId, button) => {
-        // Show the adoption modal and set initial message
+        
         const adoptContent = document.querySelector(".adopt-content");
-        adoptContent.innerHTML = `<p class="text-4xl font-bold">Congrats!</p>
-        <p class="text-lg">Adoption process has started for your pet!</p>
-        <div id="countdown"></div>`;
+        const modalBackdrop = document.getElementById("modalBackdrop");
+
+
+    modalBackdrop.classList.remove("hidden");
+
+    adoptContent.innerHTML = `
+    <div class="flex flex-col text-center ">
+        <img class="w-28 mx-auto" src="https://img.icons8.com/?size=48&id=ZDURYTlMxCmV&format=png" alt="">
+        <p class="text-4xl font-bold">Congratulations!</p>
+        <p class="text-2xl text-gray-700">Adoption process is starting for your pet.</p>
+        <div id="countdown" class=" font-bold text-7xl"></div>
+    </div>
+        
+    `;
         const adoptModal = document.getElementById("adoptModal");
         adoptModal.showModal();
     
-        let countdown = 3; // Countdown from 3
+        let countdown = 3;
         const countdownDiv = document.getElementById("countdown");
+        countdownDiv.innerHTML = countdown;
     
         const interval = setInterval(() => {
-            countdownDiv.innerHTML = countdown;
             countdown--;
+            countdownDiv.innerHTML = countdown;
     
-            // After countdown reaches 0
             if (countdown < 0) {
                 clearInterval(interval);
                 button.textContent = "Adopted";
                 setTimeout(() => {
                     adoptModal.close();
+                    modalBackdrop.classList.add("hidden");
                 });
             }
         }, 1000);
@@ -131,6 +143,7 @@ const loadLikedPhotos =(image) =>
             }
         });
     }
+    
     
 
 document.getElementById("dogs-btn").addEventListener("click", () => {

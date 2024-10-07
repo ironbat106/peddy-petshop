@@ -512,12 +512,10 @@
     </dialog>
 
     <!-- Modal 2 -->
-    <dialog id="adoptModal" class="adptmodal">
-      <div class="modal-box w-full max-w-lg p-6 bg-white rounded-lg shadow-lg">
-        <div class="adopt-content text-center text-lg font-semibold">
-          <!-- This is where the countdown will be displayed -->
-        </div>
-      </div>
+    <div id="modalBackdrop" class="fixed inset-0 bg-black bg-opacity-70 hidden"></div>
+    <dialog id="adoptModal" class="adptmodal z-50 w-full max-w-lg p-8 rounded-lg bg-white">
+            <div class="adopt-content text-center">
+            </div>
     </dialog>
 
   </main>
