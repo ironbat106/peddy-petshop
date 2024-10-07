@@ -7,9 +7,14 @@ const loadCategories = () => {
         .catch((error) => console.log(error));
 };
 
+let petsData = [];
+
 const displayPets = (pets) => {
     const petContainer = document.getElementById("pet-deals");
     petContainer.innerHTML = "";
+
+
+    petsData = pets;
 
     if (!pets || pets.length === 0) {
         petContainer.classList.remove("grid");
@@ -98,5 +103,38 @@ const displayDetails = (petData) => {
           </div>
     `
 };
+
+
+const sortByPrice = () => {
+
+    const sortedPets = petsData.sort((a, b) => {
+        const priceA = a.price ? parseFloat(a.price) : 0;
+        const priceB = b.price ? parseFloat(b.price) : 0;
+        return priceB - priceA; 
+    });
+
+    const petContainer = document.getElementById("pet-deals");
+    petContainer.innerHTML = '';
+
+    sortedPets.forEach(pet => {
+        const showPet = document.createElement("div");
+        showPet.innerHTML = `
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300 ease-out min-w-full">
+            <img src="${pet.image}" alt="${pet.pet_name}" class="rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-2 "> ${pet.pet_name}</h3>
+            <p class="text-gray-600 text-sm mb-2">Breed: ${pet.breed || "N/A"}</p>
+            <p class="text-gray-600 text-sm mb-2">Birth: ${pet.date_of_birth || "N/A"}</p>
+            <p class="text-gray-600 text-sm mb-2">Gender: ${pet.gender}</p>
+            <p class="text-gray-600 text-sm mb-2 price">Price: $${pet.price || "N/A"}</p>
+            <div class="flex justify-around">
+              <button class="like-btn bg-gray-200 px-4 py-2 rounded-md"><i class="fa-regular fa-thumbs-up"></i></button>
+              <button onclick= "adoptPet('${pet.petId}', this)" class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Adopt</button>
+              <button onclick="loadDetails('${pet.petId}')" class="text-Primary-Btn bg-gray-200 px-4 py-2 rounded-md">Details</button>
+            </div>
+          </div>`;
+        petContainer.appendChild(showPet);
+    });
+};
+document.getElementById("sort-price-btn").addEventListener("click", sortByPrice);
 
 loadCategories();
