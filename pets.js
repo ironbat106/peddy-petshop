@@ -10,6 +10,7 @@ const loadPetsByCategory = (category) => {
 };
 
 const showPetsByCategory = (pets) => {
+    handleLoading(pets);
     const petContainer = document.getElementById("pet-deals");
     petContainer.innerHTML = "";
 
@@ -43,6 +44,7 @@ const showPetsByCategory = (pets) => {
             </div>
             </div>
           </div>`;
+          
 
           const likeButton = Viewpet.querySelector('.like-btn')
           likeButton.addEventListener('click', () => {
@@ -53,7 +55,9 @@ const showPetsByCategory = (pets) => {
             petContainer.append(Viewpet);
         });
     }
+    
 };
+
 const loadLikedPhotos =(image) =>
     {
       fetch(`https://openapi.programming-hero.com/api/peddy/${pets.image}`)
@@ -89,8 +93,47 @@ const loadLikedPhotos =(image) =>
         }, 1000);
     };
 
-document.getElementById("dogs-btn").addEventListener("click", () => loadPetsByCategory("dog"));
-document.getElementById("cats-btn").addEventListener("click", () => loadPetsByCategory("cat"));
-document.getElementById("rabbits-btn").addEventListener("click", () => loadPetsByCategory("rabbit"));
-document.getElementById("birds-btn").addEventListener("click", () => loadPetsByCategory("bird"));
+    const handleLoading = (pets) => {
+        const petContainer = document.getElementById("pet-deals");
+        const spinner = document.getElementById("spinner");
+        const likedPictureContainer = document.getElementById("Liked-Picture");
+    
+        spinner.style.display = "flex";
+        petContainer.style.display = "none";
+        likedPictureContainer.style.display = "none";
+    
+        setTimeout(() => {
+            
+            if (!pets || pets.length === 0) {
+                petContainer.classList.remove("grid");
+                spinner.style.display = "none";
+                petContainer.style.display = "block";
+                likedPictureContainer.style.display = "grid";
+
+            } else {
+                petContainer.classList.add("grid");
+                spinner.style.display = "none";
+                petContainer.style.display = "grid";
+                likedPictureContainer.style.display = "grid";
+            }
+        }, 2000);
+    };
+    
+
+document.getElementById("dogs-btn").addEventListener("click", () => {
+    document.getElementById("spinner").style.display = "flex";
+    loadPetsByCategory("dog")
+});
+document.getElementById("cats-btn").addEventListener("click", () => {
+    document.getElementById("spinner").style.display = "flex";
+    loadPetsByCategory("cat")
+});
+document.getElementById("rabbits-btn").addEventListener("click", () => {
+    document.getElementById("spinner").style.display = "flex";
+    loadPetsByCategory("rabbit")
+});
+document.getElementById("birds-btn").addEventListener("click", () => {
+    document.getElementById("spinner").style.display = "flex";
+    loadPetsByCategory("bird")
+});
 document.getElementById("Like-btn").addEventListener("click", () => loadLikedPhotos("Liked-Picture"));
