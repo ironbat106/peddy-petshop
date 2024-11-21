@@ -21,4 +21,4 @@ Users can explore a variety of pets, learn comprehensive information about them,
 * Dynamic Imports (if applicable)
 
 ## Live link to the deployed project:
-https://peddy-ironbat106.netlify.app/
+(https://ironbat106.github.io/peddy-petshop/)
